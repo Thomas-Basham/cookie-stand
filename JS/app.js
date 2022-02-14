@@ -1,6 +1,11 @@
 'use strict';
 
 
+// function/method for generating random number of customers per hour
+function randomCookie(minCustomers,maxCustomers){
+  return Math.floor(Math.random() * (maxCustomers- minCustomers + 1) + minCustomers);
+}
+
 let seattle {
   name: "Seattle"
   minCustomers:23
