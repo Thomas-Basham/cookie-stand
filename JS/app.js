@@ -1,42 +1,41 @@
 'use strict';
-console.log(hello world);
-let kittenSection = document.getElementById('kitten-profiles');
+console.log(`hello world`);
+// let cities = document.getElementById('kitten-profiles');
 
 // objects/cities
-let seattle {
-  name: "Seattle"
-  minCustomers:23
-  maxCustomers:65
-  avgCookiePerSale:6.3
+let seattle = {
+  name: "Seattle",
+  minCustomers:23,
+  maxCustomers:65,
+  avgCookiePerSale:6.3,
 }
 
-let tokyo {
-  name: "Tokyo"
-  minCustomers:3
-  maxCustomers:24
-  avgCookiePerSale:1.2
+let tokyo = {
+  name: "Tokyo",
+  minCustomers:3,
+  maxCustomers:24,
+  avgCookiePerSale:1.2,
 }
 
-let dubai {
-  name: "Dubai"
-  minCustomers:11
-  maxCustomers:38
-  avgCookiePerSale:3.7
+let dubai = {
+  name: "Dubai",
+  minCustomers:11,
+  maxCustomers:38,
+  avgCookiePerSale:3.7,
 }
 
-let Paris {
-  name: "Paris"
-  minCustomers:20
-  maxCustomers:38
-  avgCookiePerSale:2.3
+let Paris = {
+  name: "Paris",
+  minCustomers:20,
+  maxCustomers:38,
+  avgCookiePerSale:2.3,
 }
 
-let Lima {
-  name: "Lima"
-  minCustomers:2
-  maxCustomers:16
-  avgCookiePerSale:4.6
-  console.log(Lima.randomCookieNumber)
+let Lima = {
+  name: "Lima",
+  minCustomers:2,
+  maxCustomers:16,
+  avgCookiePerSale:4.6,
 }
 
 
@@ -48,9 +47,6 @@ function randomCookieNumber(minCustomers,maxCustomers){
 
 
 // ********* DOM MANIPULATION ***********
-
-
-console.log(randomcookie())
 
 
 // Step 1 - JS Needs a window into the DOM - normally listed at the top of the JS page
