@@ -8,34 +8,33 @@ console.log('hello world');
 
 let salmonCookies = document.getElementById('avg-cookies');
 
-// let seattle = {
-//   name: 'Seattle',
-//   minCustomers:23,
-//   maxCustomers:65,
-//   avgCookiePerSale:6.3,
-// };
+let seattle = {
+  name: 'Seattle',
+  minCustomers:23,
+  maxCustomers:65,
+  avgCookiePerSale:6.3,
+};
 
-// let tokyo = {
-//   name: 'Tokyo',
-//   minCustomers:3,
-//   maxCustomers:24,
-//   avgCookiePerSale:1.2,
-// };
+let tokyo = {
+  name: 'Tokyo',
+  minCustomers:3,
+  maxCustomers:24,
+  avgCookiePerSale:1.2,
+};
 
-// let dubai = {
-//   name: 'Dubai',
-//   minCustomers:11,
-//   maxCustomers:38,
-//   avgCookiePerSale:3.7,
-// };
+let dubai = {
+  name: 'Dubai',
+  minCustomers:11,
+  maxCustomers:38,
+  avgCookiePerSale:3.7,
+};
 
-// let paris = {
-//   name: 'Paris',
-//   minCustomers:20,
-//   maxCustomers:38,
-//   avgCookiePerSale:2.3,
-// };
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let paris = {
+  name: 'Paris',
+  minCustomers:20,
+  maxCustomers:38,
+  avgCookiePerSale:2.3,
+};
 
 
 let lima = {
@@ -48,6 +47,7 @@ let lima = {
     this.cookiePerHour = randomCookieNumber(lima.minCustomers, lima.maxCustomers);
   }
 };
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 // lima.getCookiePerHour();
 console.log(lima.avgCookiePerSale);
@@ -77,12 +77,12 @@ salmonCookies.appendChild(paraElem);
 let ulElem = document.createElement('ul');
 salmonCookies.appendChild(ulElem);
 
-// for(let i = 0; i < this.hours.length; i++){
-//   let currentHours = this.hours[i];
-//   let liElem = document.createElement('li');
-//   liElem.textContent = currentHours;
-//   ulElem.appendChild(liElem);
-// }
+for(let i = 0; i < this.hours.length; i++){
+  let currentHours = this.hours[i];
+  let liElem = document.createElement('li');
+  liElem.textContent = currentHours;
+  ulElem.appendChild(liElem);
+}
 
 // need a loop that will return 14 random numbers from randomCookieNumber Function according to it's parent object's min/max customers.
 // neeed the total of those numbers added.
