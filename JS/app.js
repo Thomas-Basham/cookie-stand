@@ -2,16 +2,16 @@
 console.log('hello world');
 
 
-let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 
-// let cookieSales = document.getElementById('cookieSales'); //window to sales.html
+let cookieSales = document.getElementById('cookieSales'); //window to sales.html
 // let custAnHour = document.getElementById('cust-an-hour');
+
+
 
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-
-
+let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 
 function LocationData(name, avgCookiePerSale, minCust, maxCust, customersPerHour, cookiesPerHour, totalCookies){
   this.name = name;
@@ -31,7 +31,7 @@ LocationData.prototype.calcCustomers = function() { // calculates and pushes thi
     console. log('customers per hour' + this.customersPerHour);
 
   }
-} ;
+};
 
 LocationData.prototype.calcCookies = function(){ // calculates and pushes this.cookiesPerHour // cookies sold each hour defined by multiplying avg cookie per sale * randomly-generated customers per hour
   this.calcCustomers();
@@ -44,6 +44,11 @@ LocationData.prototype.calcCookies = function(){ // calculates and pushes this.c
   }
 };
 
+new LocationData('Seattle',6.3,23,65);
+new LocationData('Tokyo',1.2,3,24);
+new LocationData('Dubai',3.7,11,38);
+new LocationData('Paris',2.3,20,38);
+new LocationData('Lima',4.6,2,16);
 
 LocationData.prototype.render = function() {
 
@@ -52,10 +57,10 @@ LocationData.prototype.render = function() {
   h2Elem.textContent = this.name;
   cookieSales.appendChild(h2Elem);
 
-  let seattle = document.querySelectorAll('td.seattle');
-  if (seattle.length > 0) {
-    for(let i=o; i<seattle[i].className = 'Seattle')
-  }
+  // let seattle = document.querySelectorAll('td.seattle');
+  // if (seattle.length > 0) {
+  //   for(let i=o; i<seattle[i].className = 'Seattle')
+  // }
 
 
 };
@@ -124,11 +129,7 @@ LocationData.prototype.render = function() {
 // };
 
 
-new LocationData('Seattle',6.3,23,65);
-new LocationData('Tokyo',1.2,3,24);
-new LocationData('Dubai',3.7,11,38);
-new LocationData('Paris',2.3,20,38);
-new LocationData('Lima',4.6,2,16);
+
 
 // console.log(LocationData);
 
