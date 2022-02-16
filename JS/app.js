@@ -4,7 +4,7 @@ console.log('hello world');
 
 let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 
-let cookiesAnHour = document.getElementById('cookies-an-hour'); //window to sales.html
+let cookieSales = document.getElementById('cookieSales'); //window to sales.html
 // let custAnHour = document.getElementById('cust-an-hour');
 
 
@@ -30,7 +30,7 @@ LocationData.prototype.calcCustomers = function() { // calculates and pushes thi
     this.customersPerHour.push(randomCustNumber(this.minCust, this.maxCust));
     console. log('customers per hour' + this.customersPerHour);
   }
-};
+} ;
 
 LocationData.prototype.calcCookies = function(){ // calculates and pushes this.cookiesPerHour // cookies sold each hour defined by multiplying avg cookie per sale * randomly-generated customers per hour
   this.calcCustomers();
@@ -49,12 +49,39 @@ LocationData.prototype.render = function() {
   // renders name
   let h2Elem = document.createElement('h2');
   h2Elem.textContent = this.name;
-  cookiesAnHour.appendChild(h2Elem);
+  cookieSales.appendChild(h2Elem);
+
+
+
+  // renders table
+  let table = document.createElement('table');
+  cookieSales.appendChild('table');
+
+  let row1 = document.createElement('tr');
+  table.appendChild(row1);
+
+  let th1Elem = document.createElement('th');
+  th1Elem.textContent = ('customers Per Hour');
+  row1.appendChild(th1Elem);
+
+  let th2Elem = document.createElement('th');
+  th2Elem.textContent = ('cookies sold per hour');
+  row1.appendChild(th2Elem);
+
+  let th3Elem = document.createElement('th');
+  th3Elem.textContent = 'total cookies sold';
+  row1.appendChild(th3Elem);
+
+
+  let row2 = document.createElement('tr');
+  table.appendChild(row2);
+
+  let td1Elem = document.createElement(td1Elem);
+  td1Elem.textContent = this.customersPerHour;
+  row2.appendChild(td1Elem);
+
 };
 
-
-
-console.log(locationData);
 
 
 //renders avgCookiePerSale
@@ -91,21 +118,28 @@ console.log(locationData);
 // };
 
 
+// new LocationData('Seattle',4.6,2,16);
+// new LocationData('Tokyo',4.6,2,16);
+// new LocationData('Dubai',4.6,2,16);
+// new LocationData('Paris',4.6,2,16);
 new LocationData('Lima',4.6,2,16);
+
+console.log(LocationData);
+
 
 
 function renderAllLocations() {
   for(let i = 0; i<storeLocation.length; i++){
-    let currentlocationData = locationData[i];
-    currentlocationData.calcCustomers();
-    currentlocationData.calcCookies();
-    currentlocationData.render();
+    let currentLocationData = storeLocation[i];
+    currentLocationData.calcCustomers();
+    currentLocationData.calcCookies();
+    // currentLocationData.render();
   }
 }
 
 renderAllLocations();
 
-// console.log(storeLocation);
+console.log(storeLocation);
 
 
 
