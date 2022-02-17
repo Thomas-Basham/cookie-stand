@@ -16,20 +16,58 @@
 
       <fieldset>
         <legend>Enter New Sales Info Here</legend>
-
+<!-- 1st way 
         <label for="locationName">Location Name</label>
         <input type="text" name="locationName" id="locationName">
-        <!-- event.target.locationName.value -->
-
+        event.target.locationName.value -->
+<!-- 
         <label for="minCustomers">Minimum Customers Per Hour</label>
-        <input type="number" name="minCustomers" id="minCustomers">
+        <input type="number" name="minCustomers" id="minCustomers"> -->
 
-        <label for="maxCustomers">Maximum Customers Per Hour</label>
-        <input type="number" name="maxCustomers" id="maxCustomers">
-
+        <!-- <label for="maxCustomers">Maximum Customers Per Hour</label>
+        <input type="number" name="maxCustomers" id="maxCustomers"> -->
+<!-- 
         <label for="avgSalePerCustomer">Average Sales per Customer</label>
-          <input type="number" name = "avgSalePerCustomer" required>
+          <input type="number" name = "avgSalePerCustomer" required> -->
+
+
+
+
+          <!-- 2nd way. I prefer this way -->
+          <label>Location name
+            <input type="text" name="locationName" required>
+            <!-- event.target.locationName.value -->
+          </label>
+
+          <label>Minimum Customers Per Hour
+            <input type="number" name="minCustomers" required>
+          </label>
+
+          <label>Maximum Customers Per Hour
+            <input type="number" name="maxCustomers" required>
+          </label>
+
+          <label>Average Sales Per Customer
+            <input type="number" name="avgSalePerCustomer" required>
+          </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
         
+
+
+  
+          </label>
 
       </fieldset>
 

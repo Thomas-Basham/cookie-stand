@@ -13,8 +13,8 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '
 let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 // console.log(storeLocation);
 
-function LocationData(name, avgCookiePerSale, minCust, maxCust, customersPerHour, cookiesPerHour, totalCookies){
-  this.name = name;
+function LocationData(storeName, avgCookiePerSale, minCust, maxCust, customersPerHour, cookiesPerHour, totalCookies){
+  this.storeName = storeName;
   this.avgCookiePerSale = avgCookiePerSale;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -56,7 +56,7 @@ LocationData.prototype.render = function() {
 
   let trElem = document.createElement('tr'); // renders city name on first row
   let tdCityName = document.createElement('td');
-  tdCityName.textContent = this.name;
+  tdCityName.textContent = this.storeName;
   trElem.appendChild(tdCityName);
   table.appendChild(trElem);
 
@@ -73,7 +73,7 @@ LocationData.prototype.render = function() {
 };
 
 
-let theadHours = document.createElement('thead'); // renders header    place header and footer outside of render function
+let theadHours = document.createElement('thead'); // renders header
 let thead = document.createElement('tr');
 
 let tdBlank = document.createElement('td'); // renders blank td before hours td
@@ -88,13 +88,36 @@ for(let i = 0; i < hours.length; i++){ // renders header by using store hours of
   table.appendChild(theadHours);
 }
 
-let tdTotals = document.createElement('td'); // renders total td after hours td
+let tdTotals = document.createElement('td'); // renders 'total sold per day' string
 tdTotals.textContent = 'Total sold per day';
 theadHours.appendChild(tdTotals);
 
 
+// form on sales page
 
-// helper function to instatiate cookiesPerHour and totalCookies per storeLocation[]
+let storeFormNew = document.getElementById('store-form-new');
+
+
+function handleSubmit(Event){
+  Event.preventDefault();
+  console.log('submit');
+  let locationName = +Event.target.locationName.value;
+  let minCustomers = +Event.target.minCustomers.value;
+  let maxCustomers = +Event.target.maxCustomers.value;
+  let avgSalePerCustomer = +Event.target.avgSalePerCustomer.value;
+  console.log(locationName, minCustomers, maxCustomers,avgSalePerCustomer);
+  let LocationData = new LocationData(storeName, avgCookiePerSale, minCust, maxCust, isGoodWithKids, photo);
+
+}
+
+
+storeFormNew.addEventListener('submit', handleSubmit);
+
+
+
+
+
+// helper function to render cookiesPerHour and totalCookies per storeLocation[]
 
 function renderAllLocations() {
   for(let i = 0; i<storeLocation.length; i++){
@@ -107,21 +130,8 @@ function renderAllLocations() {
 renderAllLocations();
 // console.log(renderAllLocations);
 
-// form on sales page
-
-let storeFormNew = document.getElementById('store-form-new');
-
-function handleSubmit(Event){
-  Event.preventDefault();
-  console.log('submit', submit);
-  let cookiesPerDaySold = +Event.target.cookiesPerDaySold
 
 
-  
-
-}
-
-storeFormNew.addEventListener()
 
 
 
