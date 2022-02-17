@@ -6,7 +6,7 @@ body {
 
 }
 
-h1 {
+header {
   text-align: center;
   font-size: 50px;
   top: auto;
@@ -21,13 +21,13 @@ h1 {
 
 }
 
-h1 :first-child{
+header :first-child{
   height: 100%;
   width: auto;
   float: left;
  
 }
-h1 :nth-child(2){
+header :nth-child(2){
   height: 100%;
   width: auto;
   float: right;
@@ -96,11 +96,35 @@ iframe {
   }
 
 
-  .imgcontainer{
-    float: right;
-  }
-  /* .location-container{
-    background-color: #F7F0F0;
-  } */
-  /* text-align: left; */
-  /* border-collapse: collapse; */
+
+#imgcontainer{
+  
+  width: 890px;
+  height: 1200px;
+  /* border: 10px solid #109648;
+  border-radius: 10em;
+  padding: 4em; */
+  position:absolute; left:700px; top:20px ; top: 350px;
+  
+  float: right;
+  overflow: scroll;
+  
+}
+#imgcontainer :last-child{
+  text-align: center;
+}
+
+footer {
+  background-color: #18A999;
+  height: 120px;
+  margin-top: 50px;
+  padding: 30px;
+
+}
+
+footer :first-child{
+ 
+  text-align: center;
+  height: 100%;
+  width: auto;
+}
