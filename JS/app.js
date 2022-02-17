@@ -48,31 +48,50 @@ new LocationData('Dubai',3.7,11,38);
 new LocationData('Paris',2.3,20,38);
 new LocationData('Lima',4.6,2,16);
 
+// renders table
+
+let table = document.getElementById('cookieSales');
 LocationData.prototype.render = function() {
 
-  // renders table
-  let table = document.getElementById('cookieSales');
-
-  // let theadHours = document.createElement('thead'); // populates header   ??????
-  // let tdHours = document.createElement('td');
-  // tdHours.textContent = hours;
-  // theadHours.appendChild(tdHours);
-  // table.appendChild(theadHours);
-
-
-  let trElem = document.createElement('tr'); // populates city name on first row
+  let trElem = document.createElement('tr'); // renders city name on first row
   let tdCityName = document.createElement('td');
   tdCityName.textContent = this.name;
   trElem.appendChild(tdCityName);
   table.appendChild(trElem);
 
-  for(let i = 0; i < this.cookiesPerHour.length; i++){ // instantiates cookies per hour for each row per storeLocation[]
+  for(let i = 0; i < this.cookiesPerHour.length; i++){ // renders cookies per hour for each row per storeLocation[]
     let tdElem = document.createElement('td');
     tdElem.textContent = this.cookiesPerHour[i];
     trElem.appendChild(tdElem);
   }
 
+  let tdCookieTotal = document.createElement('td'); // renders total on last row
+  tdCookieTotal.textContent = this.totalCookies;
+  trElem.appendChild(tdCookieTotal);
+
 };
+
+
+let theadHours = document.createElement('thead'); // renders header    place header and footer outside of render function
+let thead = document.createElement('tr');
+
+let tdBlank = document.createElement('td'); // renders blank td before hours td
+tdBlank.textContent = '';
+theadHours.appendChild(tdBlank);
+
+for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
+  let tdHours = document.createElement('td');
+  tdHours.textContent = hours[i];
+  table.appendChild(thead);
+  theadHours.appendChild(tdHours);
+  table.appendChild(theadHours);
+}
+
+let tdTotals = document.createElement('td'); // renders total td after hours td
+tdTotals.textContent = 'Total sold per day';
+theadHours.appendChild(tdTotals);
+
+
 
 // helper function to instatiate cookiesPerHour and totalCookies per storeLocation[]
 
