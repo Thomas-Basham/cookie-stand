@@ -1,4 +1,53 @@
+* {font-family: "Sofia", sans-serif. georgia;
+}
 
+body {
+  background-color: #F7F0F0;
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  top: auto;
+  bottom: auto;
+
+  letter-spacing: 4px;
+  font-family: "sofia";
+  background-color: #18A999;
+  height: 100px;
+  margin-bottom: 50px;
+  padding: 30px;
+
+}
+
+h1 :first-child{
+  height: 100%;
+  width: auto;
+  float: left;
+ 
+}
+h1 :nth-child(2){
+  height: 100%;
+  width: auto;
+  float: right;
+ 
+}
+#pageindex li {
+
+  background-color: #8AF3FF;
+  float: right;
+  font-family: "sofia";
+  font-size: 20px;
+  width: max-content;
+  
+  border: 5px solid #109648;
+  border-radius: 10em;
+  margin: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+ 
+}
 
 table, td, th {  
   text-align: center;
@@ -16,5 +65,42 @@ th, td {
 }
 
 iframe {
-  float:inline-end
+  background-color: #F7F0F0;
+  width:auto;
+  height: 100px;
+
+  
 }
+.location-container {
+  width: 600px;
+  height: 1200px;
+  overflow: auto;
+  margin-top: 50px;
+}
+.contact-container {
+  
+  background-color: #8AF3FF;
+  
+  font-family: sans-serif;
+  width: 400px;
+  height: 200px;
+  border: 10px solid #109648;
+  border-radius: 10em;
+  padding: 4em;
+  overflow-wrap: anywhere;
+  
+}
+  .contact-container :first-child {
+  font-family: "sofia";
+  font-size: 2em;
+  }
+
+
+  .imgcontainer{
+    float: right;
+  }
+  /* .location-container{
+    background-color: #F7F0F0;
+  } */
+  /* text-align: left; */
+  /* border-collapse: collapse; */
