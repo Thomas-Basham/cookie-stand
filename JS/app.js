@@ -36,8 +36,9 @@ LocationData.prototype.calcCookies = function(){ // calculates and pushes this.c
   for (let i = 0; i < hours.length; i++){
     this.cookiesPerHour.push(Math.ceil(this.customersPerHour[i] * this.avgCookiePerSale));
     this.totalCookies += (this.cookiesPerHour[i]);
-    console.log('cookies per hour ' + this.cookiesPerHour);
-    console.log('total cookies: ' + this.totalCookies);
+    // console.log('cookies per hour ' + this.cookiesPerHour);
+    // console.log('total cookies: ' + this.totalCookies);
+
 
   }
 };
@@ -106,9 +107,21 @@ function renderAllLocations() {
 renderAllLocations();
 // console.log(renderAllLocations);
 
+// form on sales page
+
+let storeFormNew = document.getElementById('store-form-new');
+
+function handleSubmit(Event){
+  Event.preventDefault();
+  console.log('submit', submit);
+  let cookiesPerDaySold = +Event.target.cookiesPerDaySold
 
 
+  
 
+}
+
+storeFormNew.addEventListener()
 
 
 
