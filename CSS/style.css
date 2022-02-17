@@ -14,3 +14,7 @@ table {
 th, td {
   padding: 15px;
 }
+
+iframe {
+  float:inline-end
+}
