@@ -17,6 +17,7 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '
 let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 // console.log(storeLocation);
 
+
 function LocationData(storeName, avgCookiePerSale, minCust, maxCust){
   this.storeName = storeName;
   this.avgCookiePerSale = avgCookiePerSale;
@@ -46,12 +47,12 @@ LocationData.prototype.calcCookies = function(){ // calculates and pushes this.c
 
   }
 };
-
 new LocationData('Seattle',6.3,23,65);
 new LocationData('Tokyo',1.2,3,24);
 new LocationData('Dubai',3.7,11,38);
 new LocationData('Paris',2.3,20,38);
 new LocationData('Lima',4.6,2,16);
+
 
 // renders table
 
@@ -85,17 +86,20 @@ LocationData.prototype.render = function() {
 let theadHours = document.createElement('thead');
 let thead = document.createElement('tr');
 
-let tdBlank = document.createElement('td'); // renders blank td before hours td
-tdBlank.textContent = '';
+let tdBlank = document.createElement('th'); // renders blank td before hours td
+tdBlank.textContent = 'CITY NAME';
 theadHours.appendChild(tdBlank);
 
 for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
-  let tdHours = document.createElement('td');
+  let tdHours = document.createElement('th');
   tdHours.textContent = hours[i];
   table.appendChild(thead);
   theadHours.appendChild(tdHours);
   table.appendChild(theadHours);
 }
+let tdBlank3 = document.createElement('th'); // renders blank td before hours td
+tdBlank3.textContent = 'TOTALS';
+theadHours.appendChild(tdBlank3);
 
 
 
@@ -105,14 +109,14 @@ for(let i = 0; i < hours.length; i++){ // renders header by using store hours of
 
 
 
+let footGrandTotal = document.createElement('tfoot');
+let footerRow = document.createElement('tr');
 function grandTotal(){
-  let footGrandTotal = document.createElement('tfoot');
-  let footerRow = document.createElement('tr');
 
-  let tdBlank2 = document.createElement('td'); // renders 'Grand Total' td before hours td
+  
+  let tdBlank2 = document.createElement('tf'); // renders 'Grand Total' td before hours td
   tdBlank2.textContent = 'Grand Total';
   footGrandTotal.appendChild(tdBlank2);
-
   for (let i = 0; i < hours.length; i++){
     let total = 0;
     console.log(`before loop ${total}`);
@@ -142,7 +146,7 @@ grandTotal();
 
 
 // form on sales page
-// STEP 3: callback function/event handler
+// STEP 3 event handling: callback function/event handler
 
 function handleSubmit(Event){
   Event.preventDefault();
