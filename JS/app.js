@@ -2,10 +2,12 @@
 console.log('hello world');
 
 
+//window to table in sales.html
+let cookieSales = document.getElementById('cookieSales');
 
-let cookieSales = document.getElementById('cookieSales'); //window to table in sales.html
 
-
+//window to form on sales page STEP 1 in event handling
+let storeFormNew = document.getElementById('store-form-new');
 
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm']; // hours of operation (14 hr slots) used in LocationData()
@@ -66,7 +68,7 @@ LocationData.prototype.render = function() {
     trElem.appendChild(tdElem);
   }
 
-  let tdCookieTotal = document.createElement('td'); // renders total on last row
+  let tdCookieTotal = document.createElement('td'); // renders total on end of row
   tdCookieTotal.textContent = this.totalCookies;
   trElem.appendChild(tdCookieTotal);
 
@@ -95,22 +97,49 @@ theadHours.appendChild(tdTotals);
 
 // form on sales page
 
-let storeFormNew = document.getElementById('store-form-new');
-
+// STEP 3: callback function/event handler
 
 function handleSubmit(Event){
   Event.preventDefault();
   console.log('submit');
-  let locationName = +Event.target.locationName.value;
-  let minCustomers = +Event.target.minCustomers.value;
-  let maxCustomers = +Event.target.maxCustomers.value;
-  let avgSalePerCustomer = +Event.target.avgSalePerCustomer.value;
-  console.log(locationName, minCustomers, maxCustomers,avgSalePerCustomer);
-  let LocationData = new LocationData(storeName, avgCookiePerSale, minCust, maxCust, isGoodWithKids, photo);
+  let storeName = Event.target.locationName.value;
+  let avgCookiePerSale = +Event.target.avgSalePerCustomer.value;
+  let minCust = +Event.target.minCustomers.value;
+  let maxCust = +Event.target.maxCustomers.value;
+  console.log(storeName, avgCookiePerSale, minCust, maxCust);
+
+  let newLocationData = new LocationData(storeName, avgCookiePerSale, minCust, maxCust);
+
+  newLocationData.calcCustomers();
+  newLocationData.calcCookies();
+  console.log(newLocationData);
+  storeLocation.push(newLocationData);
+
+
+  let trElem = document.createElement('tr'); // renders new city name on first row
+  let tdCityName = document.createElement('td');
+  tdCityName.textContent = newLocationData.storeName;
+  trElem.appendChild(tdCityName);
+  table.appendChild(trElem);
+
+  for(let i = 0; i < newLocationData.cookiesPerHour.length; i++){ // renders cookies per hour for each row for new storeLocation[]
+    let tdElem = document.createElement('td');
+    tdElem.textContent = newLocationData.cookiesPerHour[i];
+    trElem.appendChild(tdElem);
+  }
+
+  let tdCookieTotal = document.createElement('td'); // renders new total on end of row
+  tdCookieTotal.textContent = newLocationData.totalCookies;
+  trElem.appendChild(tdCookieTotal);
+
+  LocationData.render = function() {
+  };
+
+
 
 }
-
-
+console.log(storeLocation);
+// STEP 2: Add Event listener to our element - 2 args: type of event and callback function
 storeFormNew.addEventListener('submit', handleSubmit);
 
 
