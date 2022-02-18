@@ -54,6 +54,32 @@ new LocationData('Lima',4.6,2,16);
 // renders table
 
 let table = document.getElementById('cookieSales');
+
+
+// renders header
+
+let theadHours = document.createElement('thead'); 
+let thead = document.createElement('tr');
+
+let tdBlank = document.createElement('td'); // renders blank td before hours td
+tdBlank.textContent = '';
+theadHours.appendChild(tdBlank);
+
+for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
+  let tdHours = document.createElement('td');
+  tdHours.textContent = hours[i];
+  table.appendChild(thead);
+  theadHours.appendChild(tdHours);
+  table.appendChild(theadHours);
+}
+
+let tdTotals = document.createElement('td'); // renders 'total sold per day' string
+tdTotals.textContent = 'Total sold per day';
+theadHours.appendChild(tdTotals);
+
+
+
+
 LocationData.prototype.render = function() {
 
   let trElem = document.createElement('tr'); // renders city name on first row
@@ -75,25 +101,33 @@ LocationData.prototype.render = function() {
 };
 
 
-let theadHours = document.createElement('thead'); // renders header
-let thead = document.createElement('tr');
 
-let tdBlank = document.createElement('td'); // renders blank td before hours td
-tdBlank.textContent = '';
-theadHours.appendChild(tdBlank);
+ // renders footer
 
-for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
-  let tdHours = document.createElement('td');
-  tdHours.textContent = hours[i];
-  table.appendChild(thead);
-  theadHours.appendChild(tdHours);
-  table.appendChild(theadHours);
+let footGrandTotal = document.createElement('tfoot');
+let footerRow = document.createElement('tr');
+
+let tdBlank2 = document.createElement('td'); // renders blank td before hours td
+tdBlank2.textContent = '';
+footGrandTotal.appendChild(tdBlank2);
+
+for(let i = 0; i < hours.length; i++){ // renders grand total need to delare a variable called grandTotal!!!
+  let tdGrandTotal = document.createElement('td');
+  tdGrandTotal.textContent = hours[i];
+  table.appendChild(footerRow);
+  footGrandTotal.appendChild(tdGrandTotal);
+  table.appendChild(footGrandTotal);
 }
 
-let tdTotals = document.createElement('td'); // renders 'total sold per day' string
-tdTotals.textContent = 'Total sold per day';
-theadHours.appendChild(tdTotals);
+// function grandTotal(){
 
+//   for (let i = 0; i < LocationData(cookiesPerHour[i]).length; i++){
+//     let total = 0;
+//     for(let j = 0; j <  storeLocation.  .length; j++){ // fast
+//       // total = total + numsArr[j][i]; 
+//       total += numsArr[j][i];
+//   LocationData(cookiesPerHour[i])
+// }
 
 // form on sales page
 
