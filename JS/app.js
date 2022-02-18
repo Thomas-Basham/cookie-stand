@@ -3,19 +3,21 @@ console.log('hello world');
 
 
 //window to table in sales.html
-let cookieSales = document.getElementById('cookieSales');
+// let cookieSales = document.getElementById('cookieSales');
+
+let table = document.getElementById('cookieSales');
 
 
 //window to form on sales page STEP 1 in event handling
 let storeFormNew = document.getElementById('store-form-new');
 
 
-let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm']; // hours of operation (14 hr slots) used in LocationData()
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm',' 2pm', '3pm', '4pm', '5pm', '6pm', '7pm',]; // hours of operation (14 hr slots) used in LocationData()
 
 let storeLocation = []; // seattle, tokyo, dubai, paris, lima
 // console.log(storeLocation);
 
-function LocationData(storeName, avgCookiePerSale, minCust, maxCust, customersPerHour, cookiesPerHour, totalCookies){
+function LocationData(storeName, avgCookiePerSale, minCust, maxCust){
   this.storeName = storeName;
   this.avgCookiePerSale = avgCookiePerSale;
   this.minCust = minCust;
@@ -53,29 +55,6 @@ new LocationData('Lima',4.6,2,16);
 
 // renders table
 
-let table = document.getElementById('cookieSales');
-
-
-// renders header
-
-let theadHours = document.createElement('thead'); 
-let thead = document.createElement('tr');
-
-let tdBlank = document.createElement('td'); // renders blank td before hours td
-tdBlank.textContent = '';
-theadHours.appendChild(tdBlank);
-
-for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
-  let tdHours = document.createElement('td');
-  tdHours.textContent = hours[i];
-  table.appendChild(thead);
-  theadHours.appendChild(tdHours);
-  table.appendChild(theadHours);
-}
-
-let tdTotals = document.createElement('td'); // renders 'total sold per day' string
-tdTotals.textContent = 'Total sold per day';
-theadHours.appendChild(tdTotals);
 
 
 
@@ -101,36 +80,67 @@ LocationData.prototype.render = function() {
 };
 
 
+// renders header
 
- // renders footer
+let theadHours = document.createElement('thead');
+let thead = document.createElement('tr');
 
-let footGrandTotal = document.createElement('tfoot');
-let footerRow = document.createElement('tr');
+let tdBlank = document.createElement('td'); // renders blank td before hours td
+tdBlank.textContent = '';
+theadHours.appendChild(tdBlank);
 
-let tdBlank2 = document.createElement('td'); // renders blank td before hours td
-tdBlank2.textContent = '';
-footGrandTotal.appendChild(tdBlank2);
-
-for(let i = 0; i < hours.length; i++){ // renders grand total need to delare a variable called grandTotal!!!
-  let tdGrandTotal = document.createElement('td');
-  tdGrandTotal.textContent = hours[i];
-  table.appendChild(footerRow);
-  footGrandTotal.appendChild(tdGrandTotal);
-  table.appendChild(footGrandTotal);
+for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
+  let tdHours = document.createElement('td');
+  tdHours.textContent = hours[i];
+  table.appendChild(thead);
+  theadHours.appendChild(tdHours);
+  table.appendChild(theadHours);
 }
 
-// function grandTotal(){
 
-//   for (let i = 0; i < LocationData(cookiesPerHour[i]).length; i++){
-//     let total = 0;
-//     for(let j = 0; j <  storeLocation.  .length; j++){ // fast
-//       // total = total + numsArr[j][i]; 
-//       total += numsArr[j][i];
-//   LocationData(cookiesPerHour[i])
-// }
+
+
+// renders footer
+
+
+
+
+function grandTotal(){
+  let footGrandTotal = document.createElement('tfoot');
+  let footerRow = document.createElement('tr');
+
+  let tdBlank2 = document.createElement('td'); // renders 'Grand Total' td before hours td
+  tdBlank2.textContent = 'Grand Total';
+  footGrandTotal.appendChild(tdBlank2);
+
+  for (let i = 0; i < hours.length; i++){
+    let total = 0;
+    console.log(`before loop ${total}`);
+    for(let j = 0; j < storeLocation.length; j++){ // fast
+      total += storeLocation[j].cookiesPerHour[i];
+      console.log(`after loop ${total}`);
+      console.log(`STORE ${storeLocation[j].storeName}`);
+      console.log(storeLocation[j].cookiesPerHour[i]);
+
+    }
+
+    let tdGrandTotal = document.createElement('td');
+    tdGrandTotal.textContent = total;
+    table.appendChild(footerRow);
+    footGrandTotal.appendChild(tdGrandTotal);
+    table.appendChild(footGrandTotal);
+    console.log(total);
+  }
+  // let tdCookieTotal = document.createElement('td'); // renders total on end of row ???????????
+  // tdCookieTotal.textContent = total;
+  // footerRow.appendChild(tdCookieTotal);
+
+
+}
+grandTotal();
+
 
 // form on sales page
-
 // STEP 3: callback function/event handler
 
 function handleSubmit(Event){
