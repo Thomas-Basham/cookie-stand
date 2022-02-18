@@ -87,7 +87,7 @@ let theadHours = document.createElement('thead');
 let thead = document.createElement('tr');
 
 let tdBlank = document.createElement('th'); // renders blank td before hours td
-tdBlank.textContent = 'CITY NAME';
+tdBlank.textContent = 'LOCATION NAME';
 theadHours.appendChild(tdBlank);
 
 for(let i = 0; i < hours.length; i++){ // renders header by using store hours of operation defined up top
@@ -113,27 +113,29 @@ let footGrandTotal = document.createElement('tfoot');
 let footerRow = document.createElement('tr');
 function grandTotal(){
 
-  
+
   let tdBlank2 = document.createElement('tf'); // renders 'Grand Total' td before hours td
   tdBlank2.textContent = 'Grand Total';
   footGrandTotal.appendChild(tdBlank2);
+
+  let totalCookies = 0;
   for (let i = 0; i < hours.length; i++){
     let total = 0;
-    console.log(`before loop ${total}`);
+    // console.log(`before loop ${total}`);
     for(let j = 0; j < storeLocation.length; j++){ // fast
 
       total += storeLocation[j].cookiesPerHour[i];
-      console.log(`after loop ${total}`);
-      console.log(`STORE ${storeLocation[j].storeName}`);
-      console.log(storeLocation[j].cookiesPerHour[i]);
-
+      // console.log(`after loop ${total}`);
+      // console.log(`STORE ${storeLocation[j].storeName}`);
+      // console.log(storeLocation[j].cookiesPerHour[i]);
     }
-
     let tdGrandTotal = document.createElement('td');
     tdGrandTotal.textContent = total;
     table.appendChild(footerRow);
     footGrandTotal.appendChild(tdGrandTotal);
     table.appendChild(footGrandTotal);
+    totalCookies += total;
+
     console.log(total);
   }
   // let tdCookieTotal = document.createElement('td'); // renders total on end of row ???????????
@@ -164,6 +166,7 @@ function handleSubmit(Event){
   console.log(newLocationData);
   storeLocation.push(newLocationData);
 
+  // footerRow.innerHTML = '';
 
   let trElem = document.createElement('tr'); // renders new city name on first row
   let tdCityName = document.createElement('td');
