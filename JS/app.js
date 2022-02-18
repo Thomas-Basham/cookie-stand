@@ -117,6 +117,7 @@ function grandTotal(){
     let total = 0;
     console.log(`before loop ${total}`);
     for(let j = 0; j < storeLocation.length; j++){ // fast
+
       total += storeLocation[j].cookiesPerHour[i];
       console.log(`after loop ${total}`);
       console.log(`STORE ${storeLocation[j].storeName}`);
