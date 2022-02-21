@@ -1,6 +1,16 @@
 # cookie-stand
+ Author: Thomas Basham
+
+## Links and Resources
+
+  [Problem Domain](https://codefellows.github.io/code-201-guide/curriculum/class-06/lab/)
+
+  [Css Cheat Sheet](https://overapi.com/css)
+
+# Reflections and Comments
 
  Application and website for a mock cookie stand to showcase javascript skills
+
 
 ## Lab 06
 
@@ -18,34 +28,8 @@ This was the fun part of the lab! For the most part I think I got all of the req
 
 This one was fun for me because we were finally able to get our application to do human things. Creating the form in html was a long process, but I can see how it will be easier with practice. I started out with pen and paper to understand the logic and went from there. Getting the event handler function to work was a fun process. It didn't seem like we were doing anything new besides targeting the events. I used the event to create a new location and then pushed that location the stores array. It was so satisfying changing bits of code and getting the form to function a little more each time. I don't think the grand totals are due yet, but I put my best effort into that. I think I'm really close. I was able to create the nested loop with the 2d array and render the row to the table, but each of the cells come back as NaN. It's strange because I'm able to acess the number with console logs. I think I may have misnamed a variable somewhere. I'll figure it out tomorrow!
 
-## Synopsis
+## Lab 10
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+After spending countless hours, this project is finally coming to completion. I've styled both pages how I want them, and I have almost everything functioning except the grand totals on the table. I had TA help plenty to try to figure that one out but I think my variables became too similarly named and hard to understand over the time of writing the code throughout the week. This was a major learning mistake for me. I could spend the time to re configure all of my variable names and then try to tackle the problem from there, but at this point I've spent enough hours on this project to have a solid understanding of the skills and fundamentals necessary to solve similar problems in the future. I understand that there needs to be a nested loop with variables related to the array in the table. 
+Styling the pages with CSS was a learning process of its own, but thankfully there is a lot of readily available informnation that is easy to search for. I could google what I wanted to do and could usually find an answer quickly. I had fond memories of the css selector game from last week. I just needed to figure out how to select that pickle, on the plate, on the table. 
 
-## Code Example
-
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
-
-## Motivation
-
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
-
-## Installation
-
-Provide code examples and explanations of how to get the project.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-
-Describe and show how to run the tests with code examples.
-
-## Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-## License
-
-A short snippet describing the license (MIT, Apache, etc.)
