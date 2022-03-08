@@ -108,18 +108,18 @@ theadHours.appendChild(tdBlank3);
 
 
 
-let footGrandTotal = document.createElement('tfoot');
-table.appendChild(footGrandTotal);
-
-let footerRow = document.createElement('tr');
-footGrandTotal.appendChild(footerRow);
-
-let tdBlank2 = document.createElement('td');
-tdBlank2.textContent = 'Hourly Totals';
-footerRow.appendChild(tdBlank2);
 
 function grandTotal(){
-
+  let footGrandTotal = document.createElement('tfoot');
+  table.appendChild(footGrandTotal);
+  
+  let footerRow = document.createElement('tr');
+  footGrandTotal.appendChild(footerRow);
+  
+  let tdBlank2 = document.createElement('td');
+  tdBlank2.textContent = 'Hourly Totals';
+  footerRow.appendChild(tdBlank2);
+  
   let grandTotal = 0;
 
 
@@ -145,7 +145,7 @@ function grandTotal(){
   footerRow.appendChild(grandTotalCell);
 
 }
-grandTotal();
+// grandTotal();
 
 // let tdCookieTotal = document.createElement('td'); // renders total on end of row ???????????
 // tdCookieTotal.textContent = total;
