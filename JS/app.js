@@ -108,44 +108,48 @@ theadHours.appendChild(tdBlank3);
 
 
 
-
 let footGrandTotal = document.createElement('tfoot');
+table.appendChild(footGrandTotal);
+
 let footerRow = document.createElement('tr');
+footGrandTotal.appendChild(footerRow);
+
+let tdBlank2 = document.createElement('td');
+tdBlank2.textContent = 'Hourly Totals';
+footerRow.appendChild(tdBlank2);
+
 function grandTotal(){
 
+  let grandTotal = 0;
 
-  let tdBlank2 = document.createElement('tf'); // renders 'Grand Total' td before hours td
-  tdBlank2.textContent = 'Grand Total';
-  footGrandTotal.appendChild(tdBlank2);
 
-  let totalCookies = 0;
   for (let i = 0; i < hours.length; i++){
     let total = 0;
-    // console.log(`before loop ${total}`);
     for(let j = 0; j < storeLocation.length; j++){ // fast
-
-      total += storeLocation[j].cookiesPerHour[i];
-      // console.log(`after loop ${total}`);
-      // console.log(`STORE ${storeLocation[j].storeName}`);
-      // console.log(storeLocation[j].cookiesPerHour[i]);
+      // let currentLocation = storeLocation[j];
+      // console.log(currentLocation);
+      total += storeLocation[j].cookiesPerHour;
+      // console.log(storeLocation[j].cookiesPerHour);
+      grandTotal += total;
     }
-    let tdGrandTotal = document.createElement('td');
-    tdGrandTotal.textContent = total;
-    table.appendChild(footerRow);
-    footGrandTotal.appendChild(tdGrandTotal);
-    table.appendChild(footGrandTotal);
-    totalCookies += total;
+    console.log(grandTotal);
 
-    console.log(total);
+    let hourlyTotalCell = document.createElement('td');
+    hourlyTotalCell.textContent = total;
+    footerRow.appendChild(hourlyTotalCell);
+
   }
-  // let tdCookieTotal = document.createElement('td'); // renders total on end of row ???????????
-  // tdCookieTotal.textContent = total;
-  // footerRow.appendChild(tdCookieTotal);
 
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.textContent = grandTotal;
+  footerRow.appendChild(grandTotalCell);
 
 }
 grandTotal();
 
+// let tdCookieTotal = document.createElement('td'); // renders total on end of row ???????????
+// tdCookieTotal.textContent = total;
+// footerRow.appendChild(tdCookieTotal);
 
 // form on sales page
 // STEP 3 event handling: callback function/event handler
@@ -190,7 +194,7 @@ function handleSubmit(Event){
 
 
 }
-console.log(storeLocation);
+// console.log(storeLocation);
 // STEP 2: Add Event listener to our element - 2 args: type of event and callback function
 storeFormNew.addEventListener('submit', handleSubmit);
 
